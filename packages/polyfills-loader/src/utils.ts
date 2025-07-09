@@ -1,4 +1,4 @@
-import { Element } from 'parse5';
+import { Element } from '@parse5/tools';
 import { getAttribute } from '@web/parse5-utils';
 import crypto from 'crypto';
 import { FileType, PolyfillsLoaderConfig } from './types.js';

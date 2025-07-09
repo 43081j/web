@@ -1,5 +1,5 @@
 import { getAttribute, setAttribute } from '@web/parse5-utils';
-import { Document } from 'parse5';
+import type { Document } from '@parse5/tools';
 import path from 'path';
 
 import {

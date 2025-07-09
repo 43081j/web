@@ -1,16 +1,18 @@
 /** @typedef {import('parse5').TreeAdapter} TreeAdapter */
-/** @typedef {import('parse5').Element} Element */
-/** @typedef {import('parse5').Attribute} Attribute */
-/** @typedef {import('parse5').Node} Node */
-/** @typedef {import('parse5').ParentNode} ParentNode */
-/** @typedef {import('parse5').ChildNode} ChildNode */
-/** @typedef {import('parse5').CommentNode} CommentNode */
-/** @typedef {import('parse5').TextNode} TextNode */
+/** @typedef {import('@parse5/tools').Element} Element */
+/** @typedef {import('parse5').Token.Attribute} Attribute */
+/** @typedef {import('parse5').html.NS} NS */
+/** @typedef {import('@parse5/tools').Node} Node */
+/** @typedef {import('@parse5/tools').ParentNode} ParentNode */
+/** @typedef {import('@parse5/tools').ChildNode} ChildNode */
+/** @typedef {import('@parse5/tools').CommentNode} CommentNode */
+/** @typedef {import('@parse5/tools').TextNode} TextNode */
 
 const parse5 = require('parse5');
-const adapter = require('parse5/lib/tree-adapters/default');
+const tools = require('@parse5/tools');
 
-const DEFAULT_NAMESPACE = 'http://www.w3.org/1999/xhtml';
+const { defaultTreeAdapter: adapter } = parse5;
+const DEFAULT_NAMESPACE = parse5.html.NS.HTML;
 const REGEXP_IS_HTML_DOCUMENT = /^\s*<(!doctype|html|head|body)\b/i;
 
 /**
@@ -18,7 +20,7 @@ const REGEXP_IS_HTML_DOCUMENT = /^\s*<(!doctype|html|head|body)\b/i;
  *
  * @param {string} tagName Tag name of the element.
  * @param {Record<string, string>} attrs Attribute name-value pair array. Foreign attributes may contain `namespace` and `prefix` fields as well.
- * @param {string} namespaceURI  Namespace of the element.
+ * @param {NS} namespaceURI  Namespace of the element.
  * @returns {Element}
  */
 function createElement(tagName, attrs = {}, namespaceURI = DEFAULT_NAMESPACE) {
@@ -219,7 +221,7 @@ function findNodes(nodes, test) {
     /** @type {Node[]} */
     let children = [];
 
-    if (adapter.isElementNode(node) && adapter.getTagName(node) === 'template') {
+    if (tools.isTemplateNode(node)) {
       const content = adapter.getTemplateContent(node);
       if (content) {
         children = adapter.getChildNodes(content);

@@ -1,5 +1,6 @@
 import { findElements, getAttribute, getTagName, getTextContent, remove } from '@web/parse5-utils';
-import { Document, Attribute } from 'parse5';
+import type { Token } from 'parse5';
+import type { Document } from '@parse5/tools';
 import path from 'path';
 import crypto from 'crypto';
 import { resolveAssetFilePath } from '../../assets/utils.js';
@@ -40,7 +41,7 @@ export function extractModules(params: ExtractModulesParams) {
     const src = getAttribute(scriptNode, 'src');
 
     const allAttributes = getAttributes(scriptNode);
-    const attributes: Attribute[] = [];
+    const attributes: Token.Attribute[] = [];
     for (const attributeName of Object.keys(allAttributes)) {
       if (attributeName !== 'src' && attributeName !== 'type') {
         attributes.push({ name: attributeName, value: allAttributes[attributeName] });

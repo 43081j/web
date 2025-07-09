@@ -47,6 +47,7 @@
   ],
   "dependencies": {
     "@babel/core": "^7.12.10",
+    "@parse5/tools": "^0.7.0",
     "@web/parse5-utils": "^2.1.0",
     "@webcomponents/scoped-custom-element-registry": "^0.0.10",
     "@webcomponents/shadycss": "^1.11.0",
@@ -57,7 +58,7 @@
     "dynamic-import-polyfill": "^0.1.1",
     "es-module-shims": "^1.4.1",
     "intersection-observer": "^0.12.0",
-    "parse5": "^6.0.1",
+    "parse5": "^8.0.0",
     "regenerator-runtime": "^0.14.0",
     "resize-observer-polyfill": "^1.5.1",
     "shady-css-scoped-element": "^0.0.2",
@@ -68,7 +69,6 @@
   },
   "devDependencies": {
     "@types/babel__core": "^7.1.12",
-    "@types/parse5": "^6.0.1",
     "@types/valid-url": "^1.0.3"
   }
 }

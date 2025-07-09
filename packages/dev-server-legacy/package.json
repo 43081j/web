@@ -59,12 +59,13 @@
     "@babel/plugin-transform-modules-systemjs": "^7.12.1",
     "@babel/plugin-transform-template-literals": "^7.12.1",
     "@babel/preset-env": "^7.12.11",
+    "@parse5/tools": "^0.7.0",
     "@web/dev-server-core": "^0.7.2",
     "@web/polyfills-loader": "^2.2.0",
     "browserslist": "^4.16.0",
     "browserslist-useragent": "^4.0.0",
     "caniuse-api": "^3.0.0",
-    "parse5": "^6.0.1",
+    "parse5": "^8.0.0",
     "valid-url": "^1.0.9"
   },
   "devDependencies": {

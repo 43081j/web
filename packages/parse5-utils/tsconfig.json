@@ -7,6 +7,7 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "composite": true,
+    "types": [],
     "allowJs": true,
     "checkJs": true,
     "emitDeclarationOnly": true
